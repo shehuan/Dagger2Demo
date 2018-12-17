@@ -1,0 +1,7 @@
+build/intermediates/
+build/outputs/
+build/tmp/
+build/generated/res/
+build/generated/not_namespaced_r_class_sources
+build/generated/source/buildConfig
+build/generated/source/rs
