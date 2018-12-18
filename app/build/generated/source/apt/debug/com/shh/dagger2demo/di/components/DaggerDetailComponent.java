@@ -5,7 +5,7 @@ import com.shh.dagger2demo.DetailActivity;
 import com.shh.dagger2demo.DetailActivity_MembersInjector;
 import com.shh.dagger2demo.di.modules.DetailModule;
 import com.shh.dagger2demo.di.modules.DetailModule_ProvideBookFactory;
-import com.shh.dagger2demo.model.BookBean;
+import com.shh.dagger2demo.models.BookBean;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.inject.Provider;

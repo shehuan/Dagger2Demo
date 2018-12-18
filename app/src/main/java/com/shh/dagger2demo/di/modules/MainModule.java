@@ -1,8 +1,8 @@
 package com.shh.dagger2demo.di.modules;
 
 import com.shh.dagger2demo.di.qulifiers.QualifierRed;
-import com.shh.dagger2demo.model.BookBean;
-import com.shh.dagger2demo.model.FlowerBean;
+import com.shh.dagger2demo.models.BookBean;
+import com.shh.dagger2demo.models.FlowerBean;
 
 import javax.inject.Named;
 

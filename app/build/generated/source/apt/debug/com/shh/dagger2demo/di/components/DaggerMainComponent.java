@@ -9,7 +9,7 @@ import com.shh.dagger2demo.di.modules.MainModule_ProvideBook1Factory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideBook2Factory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideRedFlowerFactory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideWhiteFlowerFactory;
-import com.shh.dagger2demo.model.BirdBean;
+import com.shh.dagger2demo.models.BirdBean;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 

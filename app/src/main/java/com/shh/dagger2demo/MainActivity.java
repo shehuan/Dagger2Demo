@@ -8,10 +8,10 @@ import android.view.View;
 import com.shh.dagger2demo.di.components.DaggerMainComponent;
 import com.shh.dagger2demo.di.modules.MainModule;
 import com.shh.dagger2demo.di.qulifiers.QualifierRed;
-import com.shh.dagger2demo.model.BirdBean;
-import com.shh.dagger2demo.model.BookBean;
-import com.shh.dagger2demo.model.FlowerBean;
-import com.shh.dagger2demo.model.UserBean;
+import com.shh.dagger2demo.models.BirdBean;
+import com.shh.dagger2demo.models.BookBean;
+import com.shh.dagger2demo.models.FlowerBean;
+import com.shh.dagger2demo.models.UserBean;
 
 import javax.inject.Inject;
 import javax.inject.Named;

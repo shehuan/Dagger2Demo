@@ -1,7 +1,7 @@
 package com.shh.dagger2demo.di.modules;
 
 import com.shh.dagger2demo.di.scopes.LocalScope;
-import com.shh.dagger2demo.model.BookBean;
+import com.shh.dagger2demo.models.BookBean;
 
 import dagger.Module;
 import dagger.Provides;

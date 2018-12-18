@@ -1,4 +1,4 @@
-package com.shh.dagger2demo.model;
+package com.shh.dagger2demo.models;
 
 import javax.inject.Inject;
 

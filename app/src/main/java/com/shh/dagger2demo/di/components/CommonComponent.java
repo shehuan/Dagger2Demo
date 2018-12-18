@@ -2,7 +2,7 @@ package com.shh.dagger2demo.di.components;
 
 import com.shh.dagger2demo.di.modules.CommonModule;
 import com.shh.dagger2demo.di.modules.DetailModule;
-import com.shh.dagger2demo.model.UserBean;
+import com.shh.dagger2demo.models.UserBean;
 
 import javax.inject.Singleton;
 

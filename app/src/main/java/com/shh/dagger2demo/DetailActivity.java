@@ -8,8 +8,8 @@ import android.util.Log;
 
 import com.shh.dagger2demo.di.components.DaggerDetailComponent;
 import com.shh.dagger2demo.di.modules.DetailModule;
-import com.shh.dagger2demo.model.BookBean;
-import com.shh.dagger2demo.model.UserBean;
+import com.shh.dagger2demo.models.BookBean;
+import com.shh.dagger2demo.models.UserBean;
 
 import javax.inject.Inject;
 
