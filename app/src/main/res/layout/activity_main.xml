@@ -8,18 +8,15 @@
     android:orientation="vertical"
     tools:context="com.shh.dagger2demo.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="testScope"
-        android:text="测试Scope"
-        android:textAllCaps="false" />
+    <fragment
+        android:id="@+id/detailfragment"
+        class="com.shh.dagger2demo.DetailFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="testSubcomponent"
-        android:text="测试Subcomponent"
-        android:textAllCaps="false" />
+    <!--<FrameLayout-->
+        <!--android:id="@+id/container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
 </LinearLayout>
