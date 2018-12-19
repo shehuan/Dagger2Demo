@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import javax.inject.Scope;
 
 /**
- * 实现局部单例
+ * 自定义注解实现局部单例
  */
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
