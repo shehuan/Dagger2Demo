@@ -1,6 +1,6 @@
 package com.shh.dagger2demo.di.modules;
 
-import com.shh.dagger2demo.models.UserBean;
+import com.shh.dagger2demo.models.User;
 
 import javax.inject.Singleton;
 
@@ -11,7 +11,7 @@ import dagger.Provides;
 public class CommonModule {
     @Singleton
     @Provides
-    public UserBean provideUser() {
-        return new UserBean("张三");
+    public User provideUser() {
+        return new User("张三");
     }
 }

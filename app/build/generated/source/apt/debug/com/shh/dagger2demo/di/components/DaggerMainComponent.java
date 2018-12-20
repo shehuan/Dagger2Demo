@@ -4,12 +4,12 @@ package com.shh.dagger2demo.di.components;
 import com.shh.dagger2demo.MainActivity;
 import com.shh.dagger2demo.MainActivity_MembersInjector;
 import com.shh.dagger2demo.di.modules.MainModule;
-import com.shh.dagger2demo.di.modules.MainModule_ProvideBlueFlowerFactory;
+import com.shh.dagger2demo.di.modules.MainModule_ProvideBlueRoseFactory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideBook1Factory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideBook2Factory;
-import com.shh.dagger2demo.di.modules.MainModule_ProvideRedFlowerFactory;
-import com.shh.dagger2demo.di.modules.MainModule_ProvideWhiteFlowerFactory;
-import com.shh.dagger2demo.models.BirdBean;
+import com.shh.dagger2demo.di.modules.MainModule_ProvideRedRoseFactory;
+import com.shh.dagger2demo.di.modules.MainModule_ProvideWhiteRoseFactory;
+import com.shh.dagger2demo.models.Cat;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 
@@ -44,13 +44,13 @@ public final class DaggerMainComponent implements MainComponent {
   }
 
   private MainActivity injectMainActivity(MainActivity instance) {
-    MainActivity_MembersInjector.injectBird(instance, new BirdBean());
+    MainActivity_MembersInjector.injectCat(instance, new Cat());
     MainActivity_MembersInjector.injectFlower1(
-        instance, MainModule_ProvideBlueFlowerFactory.proxyProvideBlueFlower(mainModule));
+        instance, MainModule_ProvideRedRoseFactory.proxyProvideRedRose(mainModule));
     MainActivity_MembersInjector.injectFlower2(
-        instance, MainModule_ProvideRedFlowerFactory.proxyProvideRedFlower(mainModule));
+        instance, MainModule_ProvideBlueRoseFactory.proxyProvideBlueRose(mainModule));
     MainActivity_MembersInjector.injectFlower3(
-        instance, MainModule_ProvideWhiteFlowerFactory.proxyProvideWhiteFlower(mainModule));
+        instance, MainModule_ProvideWhiteRoseFactory.proxyProvideWhiteRose(mainModule));
     MainActivity_MembersInjector.injectUser(
         instance,
         Preconditions.checkNotNull(

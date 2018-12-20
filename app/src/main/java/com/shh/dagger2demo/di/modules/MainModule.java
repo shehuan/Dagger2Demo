@@ -1,8 +1,8 @@
 package com.shh.dagger2demo.di.modules;
 
-import com.shh.dagger2demo.di.qulifiers.QualifierRed;
-import com.shh.dagger2demo.models.BookBean;
-import com.shh.dagger2demo.models.FlowerBean;
+import com.shh.dagger2demo.di.qulifiers.QualifierBlue;
+import com.shh.dagger2demo.models.Book;
+import com.shh.dagger2demo.models.Flower;
 
 import javax.inject.Named;
 
@@ -13,31 +13,31 @@ import dagger.Provides;
 public class MainModule {
 
     @Provides
-    public FlowerBean provideBlueFlower() {
-        return new FlowerBean("rose", "blue");
+    public Flower provideRedRose() {
+        return new Flower("玫瑰", "红色");
     }
 
-    @QualifierRed
+    @QualifierBlue
     @Provides
-    public FlowerBean provideRedFlower() {
-        return new FlowerBean("rose", "red");
+    public Flower provideBlueRose() {
+        return new Flower("玫瑰", "蓝色");
     }
 
     @Named("white")
     @Provides
-    public FlowerBean provideWhiteFlower() {
-        return new FlowerBean("rose", "white");
+    public Flower provideWhiteRose() {
+        return new Flower("玫瑰", "白色");
     }
 
     @Named("book1")
     @Provides
-    public BookBean provideBook1() {
-        return new BookBean("大话设计模式", 50f);
+    public Book provideBook1() {
+        return new Book("大话设计模式", 50f);
     }
 
     @Named("book2")
     @Provides
-    public BookBean provideBook2() {
-        return new BookBean("图解算法", 30f);
+    public Book provideBook2() {
+        return new Book("图解算法", 30f);
     }
 }

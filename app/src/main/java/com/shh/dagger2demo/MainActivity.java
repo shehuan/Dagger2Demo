@@ -7,11 +7,11 @@ import android.view.View;
 
 import com.shh.dagger2demo.di.components.DaggerMainComponent;
 import com.shh.dagger2demo.di.modules.MainModule;
-import com.shh.dagger2demo.di.qulifiers.QualifierRed;
-import com.shh.dagger2demo.models.BirdBean;
-import com.shh.dagger2demo.models.BookBean;
-import com.shh.dagger2demo.models.FlowerBean;
-import com.shh.dagger2demo.models.UserBean;
+import com.shh.dagger2demo.di.qulifiers.QualifierBlue;
+import com.shh.dagger2demo.models.Cat;
+import com.shh.dagger2demo.models.Book;
+import com.shh.dagger2demo.models.Flower;
+import com.shh.dagger2demo.models.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,34 +21,32 @@ import dagger.Lazy;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = "MainActivity";
+    @Inject
+    Cat cat;
 
     @Inject
-    BirdBean bird;
+    Flower flower1;
 
+    @QualifierBlue
     @Inject
-    FlowerBean flower1;
-
-    @QualifierRed
-    @Inject
-    FlowerBean flower2;
+    Flower flower2;
 
     @Named("white")
     @Inject
-    FlowerBean flower3;
+    Flower flower3;
 
     @Inject
-    UserBean user;
+    User user;
 
     // 对象懒加载，用到该依赖对象时才会去加载，只加载一次
     @Named("book1")
     @Inject
-    Lazy<BookBean> book1;
+    Lazy<Book> book1;
 
     // 每次用到依赖对象，都会重新加载一次
     @Named("book2")
     @Inject
-    Provider<BookBean> book2;
+    Provider<Book> book2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 .build()
                 .inject(this);
 
-        Log.e("bird", bird.toString());
+        Log.e("cat", cat.toString());
 
         Log.e("flower1", flower1.toString());
         Log.e("flower2", flower2.toString());

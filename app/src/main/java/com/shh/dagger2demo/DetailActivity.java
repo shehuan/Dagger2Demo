@@ -8,23 +8,20 @@ import android.util.Log;
 
 import com.shh.dagger2demo.di.components.DaggerDetailComponent;
 import com.shh.dagger2demo.di.modules.DetailModule;
-import com.shh.dagger2demo.models.BookBean;
-import com.shh.dagger2demo.models.UserBean;
+import com.shh.dagger2demo.models.Book;
+import com.shh.dagger2demo.models.User;
 
 import javax.inject.Inject;
 
 public class DetailActivity extends AppCompatActivity {
-
-    public static final String TAG = "DetailActivity";
+    @Inject
+    Book book1;
 
     @Inject
-    BookBean book1;
+    Book book2;
 
     @Inject
-    BookBean book2;
-
-    @Inject
-    UserBean user;
+    User user;
 
     public static void start(Context context) {
         context.startActivity(new Intent(context, DetailActivity.class));

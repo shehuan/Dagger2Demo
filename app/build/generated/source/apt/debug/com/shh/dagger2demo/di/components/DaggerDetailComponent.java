@@ -5,7 +5,7 @@ import com.shh.dagger2demo.DetailActivity;
 import com.shh.dagger2demo.DetailActivity_MembersInjector;
 import com.shh.dagger2demo.di.modules.DetailModule;
 import com.shh.dagger2demo.di.modules.DetailModule_ProvideBookFactory;
-import com.shh.dagger2demo.models.BookBean;
+import com.shh.dagger2demo.models.Book;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.inject.Provider;
@@ -13,7 +13,7 @@ import javax.inject.Provider;
 public final class DaggerDetailComponent implements DetailComponent {
   private CommonComponent commonComponent;
 
-  private Provider<BookBean> provideBookProvider;
+  private Provider<Book> provideBookProvider;
 
   private DaggerDetailComponent(Builder builder) {
     initialize(builder);

@@ -1,9 +1,9 @@
 package com.shh.dagger2demo.models;
 
-public class UserBean {
+public class User {
     private String name;
 
-    public UserBean(String name) {
+    public User(String name) {
         this.name = name;
     }
 }

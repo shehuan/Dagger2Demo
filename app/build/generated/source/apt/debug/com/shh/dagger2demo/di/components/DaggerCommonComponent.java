@@ -7,14 +7,14 @@ import com.shh.dagger2demo.di.modules.CommonModule;
 import com.shh.dagger2demo.di.modules.CommonModule_ProvideUserFactory;
 import com.shh.dagger2demo.di.modules.DetailModule;
 import com.shh.dagger2demo.di.modules.DetailModule_ProvideBookFactory;
-import com.shh.dagger2demo.models.BookBean;
-import com.shh.dagger2demo.models.UserBean;
+import com.shh.dagger2demo.models.Book;
+import com.shh.dagger2demo.models.User;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.inject.Provider;
 
 public final class DaggerCommonComponent implements CommonComponent {
-  private Provider<UserBean> provideUserProvider;
+  private Provider<User> provideUserProvider;
 
   private DaggerCommonComponent(Builder builder) {
     initialize(builder);
@@ -35,7 +35,7 @@ public final class DaggerCommonComponent implements CommonComponent {
   }
 
   @Override
-  public UserBean provideUser() {
+  public User provideUser() {
     return provideUserProvider.get();
   }
 
@@ -65,7 +65,7 @@ public final class DaggerCommonComponent implements CommonComponent {
   private final class SubDetailComponentImpl implements SubDetailComponent {
     private DetailModule detailModule;
 
-    private Provider<BookBean> provideBookProvider;
+    private Provider<Book> provideBookProvider;
 
     private SubDetailComponentImpl(DetailModule module) {
       initialize(module);
