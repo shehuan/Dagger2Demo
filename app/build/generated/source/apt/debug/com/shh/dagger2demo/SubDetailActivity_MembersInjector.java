@@ -2,11 +2,11 @@
 package com.shh.dagger2demo;
 
 import com.shh.dagger2demo.models.Book;
-import com.shh.dagger2demo.models.User;
+
 import dagger.MembersInjector;
 import javax.inject.Provider;
 
-public final class SubDetailActivity_MembersInjector implements MembersInjector<SubDetailActivity> {
+public final class SubDetailActivity_MembersInjector implements MembersInjector<SubActivity> {
   private final Provider<Book> book1AndBook2Provider;
 
   private final Provider<User> userProvider;
@@ -17,27 +17,27 @@ public final class SubDetailActivity_MembersInjector implements MembersInjector<
     this.userProvider = userProvider;
   }
 
-  public static MembersInjector<SubDetailActivity> create(
+  public static MembersInjector<SubActivity> create(
       Provider<Book> book1AndBook2Provider, Provider<User> userProvider) {
     return new SubDetailActivity_MembersInjector(book1AndBook2Provider, userProvider);
   }
 
   @Override
-  public void injectMembers(SubDetailActivity instance) {
+  public void injectMembers(SubActivity instance) {
     injectBook1(instance, book1AndBook2Provider.get());
     injectBook2(instance, book1AndBook2Provider.get());
     injectUser(instance, userProvider.get());
   }
 
-  public static void injectBook1(SubDetailActivity instance, Book book1) {
+  public static void injectBook1(SubActivity instance, Book book1) {
     instance.book1 = book1;
   }
 
-  public static void injectBook2(SubDetailActivity instance, Book book2) {
+  public static void injectBook2(SubActivity instance, Book book2) {
     instance.book2 = book2;
   }
 
-  public static void injectUser(SubDetailActivity instance, User user) {
+  public static void injectUser(SubActivity instance, User user) {
     instance.user = user;
   }
 }

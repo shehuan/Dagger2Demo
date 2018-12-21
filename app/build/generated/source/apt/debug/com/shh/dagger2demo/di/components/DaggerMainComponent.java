@@ -5,22 +5,15 @@ import com.shh.dagger2demo.MainActivity;
 import com.shh.dagger2demo.MainActivity_MembersInjector;
 import com.shh.dagger2demo.di.modules.MainModule;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideBlueRoseFactory;
-import com.shh.dagger2demo.di.modules.MainModule_ProvideBook1Factory;
-import com.shh.dagger2demo.di.modules.MainModule_ProvideBook2Factory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideRedRoseFactory;
 import com.shh.dagger2demo.di.modules.MainModule_ProvideWhiteRoseFactory;
 import com.shh.dagger2demo.models.Cat;
-import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 
 public final class DaggerMainComponent implements MainComponent {
   private MainModule mainModule;
 
   private CommonComponent commonComponent;
-
-  private MainModule_ProvideBook1Factory provideBook1Provider;
-
-  private MainModule_ProvideBook2Factory provideBook2Provider;
 
   private DaggerMainComponent(Builder builder) {
     initialize(builder);
@@ -34,8 +27,6 @@ public final class DaggerMainComponent implements MainComponent {
   private void initialize(final Builder builder) {
     this.mainModule = builder.mainModule;
     this.commonComponent = builder.commonComponent;
-    this.provideBook1Provider = MainModule_ProvideBook1Factory.create(builder.mainModule);
-    this.provideBook2Provider = MainModule_ProvideBook2Factory.create(builder.mainModule);
   }
 
   @Override
@@ -48,16 +39,14 @@ public final class DaggerMainComponent implements MainComponent {
     MainActivity_MembersInjector.injectFlower1(
         instance, MainModule_ProvideRedRoseFactory.proxyProvideRedRose(mainModule));
     MainActivity_MembersInjector.injectFlower2(
-        instance, MainModule_ProvideBlueRoseFactory.proxyProvideBlueRose(mainModule));
-    MainActivity_MembersInjector.injectFlower3(
         instance, MainModule_ProvideWhiteRoseFactory.proxyProvideWhiteRose(mainModule));
-    MainActivity_MembersInjector.injectUser(
+    MainActivity_MembersInjector.injectFlower3(
+        instance, MainModule_ProvideBlueRoseFactory.proxyProvideBlueRose(mainModule));
+    MainActivity_MembersInjector.injectBook(
         instance,
         Preconditions.checkNotNull(
-            commonComponent.provideUser(),
+            commonComponent.provideBook(),
             "Cannot return null from a non-@Nullable component method"));
-    MainActivity_MembersInjector.injectBook1(instance, DoubleCheck.lazy(provideBook1Provider));
-    MainActivity_MembersInjector.injectBook2(instance, provideBook2Provider);
     return instance;
   }
 

@@ -18,6 +18,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="testSingleton"
+        android:text="测试全局单例"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="testSubcomponent"
         android:text="测试Subcomponent"
         android:textAllCaps="false" />

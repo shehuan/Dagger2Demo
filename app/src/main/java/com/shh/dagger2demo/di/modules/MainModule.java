@@ -12,15 +12,10 @@ import dagger.Provides;
 @Module
 public class MainModule {
 
+    @Named("red")
     @Provides
     public Flower provideRedRose() {
         return new Flower("玫瑰", "红色");
-    }
-
-    @QualifierBlue
-    @Provides
-    public Flower provideBlueRose() {
-        return new Flower("玫瑰", "蓝色");
     }
 
     @Named("white")
@@ -29,15 +24,21 @@ public class MainModule {
         return new Flower("玫瑰", "白色");
     }
 
-    @Named("book1")
+    @QualifierBlue
     @Provides
-    public Book provideBook1() {
-        return new Book("大话设计模式", 50f);
+    public Flower provideBlueRose() {
+        return new Flower("玫瑰", "蓝色");
     }
 
-    @Named("book2")
-    @Provides
-    public Book provideBook2() {
-        return new Book("图解算法", 30f);
-    }
+//    @Named("book1")
+//    @Provides
+//    public Book provideBook1() {
+//        return new Book("大话设计模式", 50f);
+//    }
+//
+//    @Named("book2")
+//    @Provides
+//    public Book provideBook2() {
+//        return new Book("图解算法", 30f);
+//    }
 }

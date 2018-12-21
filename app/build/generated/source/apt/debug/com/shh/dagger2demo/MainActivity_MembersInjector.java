@@ -4,10 +4,7 @@ package com.shh.dagger2demo;
 import com.shh.dagger2demo.models.Book;
 import com.shh.dagger2demo.models.Cat;
 import com.shh.dagger2demo.models.Flower;
-import com.shh.dagger2demo.models.User;
-import dagger.Lazy;
 import dagger.MembersInjector;
-import dagger.internal.DoubleCheck;
 import javax.inject.Provider;
 
 public final class MainActivity_MembersInjector implements MembersInjector<MainActivity> {
@@ -19,27 +16,19 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
 
   private final Provider<Flower> flower3Provider;
 
-  private final Provider<User> userProvider;
-
-  private final Provider<Book> book1Provider;
-
-  private final Provider<Book> book2Provider;
+  private final Provider<Book> bookProvider;
 
   public MainActivity_MembersInjector(
       Provider<Cat> catProvider,
       Provider<Flower> flower1Provider,
       Provider<Flower> flower2Provider,
       Provider<Flower> flower3Provider,
-      Provider<User> userProvider,
-      Provider<Book> book1Provider,
-      Provider<Book> book2Provider) {
+      Provider<Book> bookProvider) {
     this.catProvider = catProvider;
     this.flower1Provider = flower1Provider;
     this.flower2Provider = flower2Provider;
     this.flower3Provider = flower3Provider;
-    this.userProvider = userProvider;
-    this.book1Provider = book1Provider;
-    this.book2Provider = book2Provider;
+    this.bookProvider = bookProvider;
   }
 
   public static MembersInjector<MainActivity> create(
@@ -47,17 +36,9 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
       Provider<Flower> flower1Provider,
       Provider<Flower> flower2Provider,
       Provider<Flower> flower3Provider,
-      Provider<User> userProvider,
-      Provider<Book> book1Provider,
-      Provider<Book> book2Provider) {
+      Provider<Book> bookProvider) {
     return new MainActivity_MembersInjector(
-        catProvider,
-        flower1Provider,
-        flower2Provider,
-        flower3Provider,
-        userProvider,
-        book1Provider,
-        book2Provider);
+        catProvider, flower1Provider, flower2Provider, flower3Provider, bookProvider);
   }
 
   @Override
@@ -66,9 +47,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
     injectFlower1(instance, flower1Provider.get());
     injectFlower2(instance, flower2Provider.get());
     injectFlower3(instance, flower3Provider.get());
-    injectUser(instance, userProvider.get());
-    injectBook1(instance, DoubleCheck.lazy(book1Provider));
-    injectBook2(instance, book2Provider);
+    injectBook(instance, bookProvider.get());
   }
 
   public static void injectCat(MainActivity instance, Cat cat) {
@@ -87,15 +66,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
     instance.flower3 = flower3;
   }
 
-  public static void injectUser(MainActivity instance, User user) {
-    instance.user = user;
-  }
-
-  public static void injectBook1(MainActivity instance, Lazy<Book> book1) {
-    instance.book1 = book1;
-  }
-
-  public static void injectBook2(MainActivity instance, Provider<Book> book2) {
-    instance.book2 = book2;
+  public static void injectBook(MainActivity instance, Book book) {
+    instance.book = book;
   }
 }
