@@ -13,6 +13,5 @@ import dagger.Component;
 public interface CommonComponent {
     Book provideBook();
 
-    // 定义返回子组件的方法，参数为子组件需要的module
-    MySubComponent getSubComponent(SubModule module);
+//    MySubComponent getSubComponent(SubModule module);
 }

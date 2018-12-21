@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.shh.dagger2demo.di.components.DaggerDetailComponent;
+import com.shh.dagger2demo.di.components.DetailComponent;
 import com.shh.dagger2demo.di.modules.DetailModule;
 import com.shh.dagger2demo.di.modules.SubModule;
 import com.shh.dagger2demo.models.Book;
@@ -30,7 +31,8 @@ public class SubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
 
-        DaggerDetailComponent.builder().detailModule(new DetailModule()).build().getSubComponent(new SubModule()).inject(this);
+        DetailComponent detailComponent = DaggerDetailComponent.builder().detailModule(new DetailModule()).build();
+        detailComponent.getSubComponent(new SubModule()).inject(this);
 
 //        ((App) getApplication()).getCommonComponent().getSubComponent(new SubModule()).inject(this);
 
