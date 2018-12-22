@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
     @Inject
-    FlowerBean flower1;
+    FlowerBean flower;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.e("flower1", flower1.toString());
+        Log.e("flower", flower.toString());
     }
 }
